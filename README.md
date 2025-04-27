@@ -198,7 +198,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Deploying models
 
 ---
----
 # 📢 **Contributions:**
 
 Contributions, suggestions, and feedback are welcome! Feel free to fork the repository and submit pull requests.
@@ -207,5 +206,3 @@ Contributions, suggestions, and feedback are welcome! Feel free to fork the repo
 # 📫 Contact
 - 📧 Email: russdataproject@gmail.com
 - 💼 LinkedIn: [Click Here](https://www.linkedin.com/in/rajesh-kumar-dhimal-478901279/)
-
----
