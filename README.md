@@ -32,8 +32,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 ### 🛠️ **Knowledge Areas:**
 - Data Collection
 - Data Cleaning Basics
-- 
----
 
 ## 🧪 **`Data Analysis`:**
 
@@ -52,8 +50,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Feature engineering
 - Handling missing values
 
----
-
 ## 🎨 **`Data Visualization`:**
 
 <img src="https://img.shields.io/badge/Data%20Visualization-Matplotlib | Seaborn | Plotly-8e2de2?style=for-the-badge" alt="Data Visualization Tools Badge"/>
@@ -68,8 +64,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 ### 📌 **Key Activities:**
 - Histograms, Pie Charts, Bar Plots
 - Interactive Dashboards (Plotly)
-
----
 
 ## 🛡️ **`Classical Machine Learning and Data Analysis`:**
 
@@ -88,8 +82,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - `Clustering`
 - `Model Evaluation (accuracy, precision, recall etc.)`
 
----
-
 ## 🔮 **`Classical Machine Learning for Predictions`:**
 
 <img src="https://img.shields.io/badge/ML%20Predictions-ScikitLearn | MLFlow-8e2de2?style=for-the-badge" alt="ML Predictions Badge"/>
@@ -104,8 +96,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Building and tuning models
 - Predictive analysis
 - Deployment-ready models
-
----
 
 ## 📚 **`Statistical Data Analysis and Hypothesis Testing`:**
 
@@ -124,8 +114,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - ANOVA, Regression analysis
 - Confidence Intervals
 
----
-
 ## 🛢️ **`Data Analysis with SQL`:**
 
 <img src="https://img.shields.io/badge/ SQL-PostgreSQL | SQLite-8e2de2?style=for-the-badge" alt="SQL Badge"/>
@@ -141,8 +129,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Data extraction
 - Data cleaning using SQL
 - Aggregations, Joins, Subqueries
-
----
 
 ## 🧠 **`Deep Learning with PyTorch`:**
 
@@ -179,8 +165,6 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Tokenization, Embeddings
 - Fine-tuning BERT, GPT models
 
----
-
 ## 🔥 **`Deep Learning with TensorFlow`:**
 
 <img src="https://img.shields.io/badge/Deep%20Learning-TensorFlow-FF6F00?style=for-the-badge" alt="TensorFlow Badge"/>
@@ -197,12 +181,10 @@ Each Repository represents a **different stage** of solving real-world problems,
 - Model monitoring with TensorBoard
 - Deploying models
 
----
 # 📢 **Contributions:**
 
 Contributions, suggestions, and feedback are welcome! Feel free to fork the repository and submit pull requests.
 
----
 # 📫 Contact
 - 📧 Email: russdataproject@gmail.com
 - 💼 LinkedIn: [Click Here](https://www.linkedin.com/in/rajesh-kumar-dhimal-478901279/)
