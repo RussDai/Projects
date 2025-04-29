@@ -6,7 +6,7 @@ import seaborn as sns
 
 def data_loader(): 
 
-    data= pd.read_csv("/home/russ/Desktop/Mission-Project/00_DataSets/24_Suicide_Rates.csv")
+    data= pd.read_csv("C:/Users/MyMachine/Desktop/Mission-Project/00_DataSets/24_Suicide_Rates.csv")
 
     Percentage_of_null_values= data["HDI for year"].isnull().sum() / len(data) *100
 
