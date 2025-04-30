@@ -62,5 +62,24 @@ This project includes a variety of plots, such as:
 
 9. and many more. 
 
+## **Important Links:**
+1. Python: [Python](https://www.python.org/)
+
+2. Jupyter Notebook: [Jupyter Notebook](https://jupyter.org/)
+
+3. Numpy: [Numpy](https://numpy.org/)
+
+4. Pandas: [Pandas](https://pandas.pydata.org/)
+
+5. Matplotlib: [Matplotlib](https://matplotlib.org/)
+
+6. Seaborn: [Seaborn](https://seaborn.pydata.org/)
+
+7. Plotly: [Plotly](https://plotly.com/python/)
+
+8. Scikit-Learn: [Scikit-Learn](https://scikit-learn.org/stable/)
+
+9. GitHub: [GitHub](https://github.com/)
+
 ## **Contributing:**
 Contributions are welcome! If you have suggestions for improvements or new features, please create an issue or submit a pull request.
