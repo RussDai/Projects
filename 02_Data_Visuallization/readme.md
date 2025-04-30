@@ -62,6 +62,76 @@ This project includes a variety of plots, such as:
 
 9. and many more. 
 
+## **Important Dependecies:**
+
+```python
+import os
+import sys
+import warnings
+from datetime import datetime
+# os, sys: for file paths or custom module access.
+# warnings: to suppress or manage warnings.
+# datetime: useful for time-based data or tracking execution.
+
+# ------------------------------------------------------------------------------------
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline  # Ensures plots appear in the notebook
+sns.set_theme(style="whitegrid")  # Sets plot theme
+
+# -------------------------------------------------------------------------------------
+
+# plotly.express: high-level API for quick visualizations.
+#plotly.graph_objects: for detailed, customized interactive plots.
+import plotly.express as px
+import plotly.graph_objects as go
+
+# ----------------------------------------------------------------------------------------
+
+warnings.filterwarnings("ignore") # Ignore warnings
+
+# ----------------------------------------------------------------------------------------
+pd.set_option('display.max_columns', None)  # Show all columns
+pd.set_option('display.float_format', lambda x: '%.2f' % x)  # Format floats nicely
+
+# --------------------------------------------------------------------------------------
+
+from IPython.display import display, HTML, Markdown
+# display(): for displaying DataFrames, HTML, Markdown, or Plotly figures without needing print.
+# HTML(): for embedding raw HTML (tables, styling, formatting).
+# Markdown(): to render Markdown strings dynamically.
+
+# -----------------------------------------------------------------------------------------
+# Allows us to display output from multiple lines in a single cell
+#  (useful when returning multiple objects).
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+
+# --------------------------------------------------------------------------------------
+# Automatically reloads modules we edit outside the notebook 
+# without restarting the kernel 
+# (useful in modular analysis or app development).
+%load_ext autoreload
+%autoreload 2
+
+# ---------------------------------------------------------------------------------------
+
+#  Adds clean and interactive progress bars in 
+# loops and DataFrame operations.
+from tqdm.notebook import tqdm
+
+# ------------------------------------------------------------------------------------------
+
+# jupyterthemes: for consistent UI style
+# (optional but adds polish when presenting).
+!pip install jupyterthemes
+# Example (after installing): 
+# !jt -t grade3 -ofs 12 -nfs 12 -tfs 12 -cellw 88%
+
+```
+
 ## **Important Links:**
 1. Python: [Python](https://www.python.org/)
 
