@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/Data%20Analysis:-Python | Numpy | Pandas | Sklearn |-8e2de2?style=for-the-badge" alt="Data Visualization Tools Badge"/>
 
-<img src="https://img.shields.io/badge/Data%20Visualization:-Matplotlib | Seaborn | Plotly-8e2de2?style=for-the-badge" alt="Data Visualization Tools Badge"/>
+<img src="https://img.shields.io/badge/Data%20Visualization:-Matplotlib | Seaborn | Plotly |-8e2de2?style=for-the-badge" alt="Data Visualization Tools Badge"/>
 
 ## **Overview:**
 This project aims to do Exploratory Data Analysis on some popular real-world datasets and create insightful visualizations using Python and libraries like Metplotlib, Seaborn, Plotly, Numpy, Pandas and others.
