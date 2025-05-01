@@ -33,7 +33,7 @@ Match `results`, `margins`, `venues`, and `team performances` are covered across
 
 - **Create ‘Match Year’ and ‘Month’** – For time-series or seasonal analysis.
 - **Create ‘Is Neutral Ground’** – Compare ground with both team names to infer neutrality.
-- **Extract Margin Type** – Separate win type (e.g., runs, wickets, innings) from margin string.
+- **Extract Margin Type** – Separate win type (e.g., runs, wickets, innings) from margin string. 
 - **Create binary outcome features** – Flags like `Is Draw`, `Is Tie`, `Is Win by Runs`, etc.
 - **Create ‘Home Team’ and ‘Away Team’** – If derivable, based on venue and common patterns.
 - **Add ‘Decade’ or ‘Era’ column** – Useful for historical trend analysis.
