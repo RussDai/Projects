@@ -49,8 +49,6 @@ def data_process():
 
 # -------------------------------------------------------------------------------------
 
-data= data_process() # Calling previous function
-
 # Define a function to split and parse the match_date column:
 def split_match_date(date_str):
     try:
@@ -82,10 +80,6 @@ def split_match_date(date_str):
     except Exception:
         return None, None, None
 
-# Apply the function to the match_date column and create new columns
-data[["year_with_month", "start_date", "total_duration"]] = data["match_date"].apply(
-    lambda x: pd.Series(split_match_date(x)))
-
 # ------------------------------------------------------------------------------------
 
 # helper function to get year and total_duration columns;
@@ -108,9 +102,39 @@ def data_out(data):
 
     return data
 
+# --------------------------------------------------------------------------------------
 
+# Wrapper function to process data end-to-end
+def process_data_pipeline():
+    # Step 1: Clean and preprocess the data
+    data = data_process()
+    
+    # Step 2: Apply the split_match_date function
+    data[["year_with_month", "start_date", "total_duration"]] = data["match_date"].apply(
+        lambda x: pd.Series(split_match_date(x))
+    )
+    
+    # Step 3: Finalize the data using data_out
+    data = data_out(data)
+    
+    return data
+
+# --------------------
+# For data engineering, we need to call the wrapper function to get the final processed data
+#data = process_data_pipeline()
 # --------------------------------------------------------------------------------------
 # 2. Data Engineering:
 
-
-
+def data_engineering(data):
+    # 1. Create month column from start_date column:
+    # add month column to the dataframe:
+    data["month"]= data["start_date"].dt.month
+    # replace nan by most frequently occuring value of the column:
+    data["month"].fillna(data["month"].mode(), inplace= True)
+    # Map numeric month values to actual month names:
+    month_mapping = {
+    1.0: 'Jan', 2.0: 'Feb', 3.0: 'Mar', 4.0: 'Apr',
+    5.0: 'May', 6.0: 'Jun', 7.0: 'Jul', 8.0: 'Aug',
+    9.0: 'Sep', 10.0: 'Oct', 11.0: 'Nov', 12.0: 'Dec'}
+    # Apply the mapping to the 'Month' column:
+    data['month'] = data['month'].map(month_mapping)
