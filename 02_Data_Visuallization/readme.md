@@ -151,5 +151,58 @@ from tqdm.notebook import tqdm
 
 9. GitHub: [GitHub](https://github.com/)
 
+
+## **Data Sources:**
+Here’s a list of **some popular open data sources** I may use in my projects for data analysis and visuallization:
+
+### **1. Top General Data Repositories (Structured, Tabular Data):**
+
+| Source | Description | Format |
+|--------|-------------|--------|
+| [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) | The gold standard for classical ML datasets (Iris, Wine, Adult Income, etc.) | CSV, ARFF |
+| [Kaggle Datasets](https://www.kaggle.com/datasets) | Rich collection of tabular datasets for ML and visualization. | CSV, Excel |
+| [Awesome Public Datasets on GitHub](https://github.com/awesomedata/awesome-public-datasets) | A massive list of categorized datasets (many tabular). | Mixed |
+| [OpenML](https://www.openml.org/) | Community-driven ML datasets and tasks. Integrates well with `scikit-learn`. | CSV |
+| [DataHub.io](https://datahub.io/) | Open datasets in finance, health, education, etc. (easy to browse by topic). | CSV, JSON |
+
+### **2. Classic & Beginner-Friendly Datasets for ML and Visualization:**
+
+| Dataset | Description | Source |
+|---------|-------------|--------|
+| **Iris** | Flower classification (ideal for basic classification and clustering). | UCI, scikit-learn |
+| **Wine Quality** | Predict quality of red/white wine based on physicochemical tests. | UCI |
+| **Titanic Survival** | Predict who survived the Titanic disaster. | Kaggle |
+| **Adult Income** | Classification task: predict whether income >$50K/year. | UCI |
+| **Boston Housing** | Predict house prices based on 13 features. *(Note: deprecated due to ethical concerns, but still educational)* | scikit-learn |
+| **California Housing** | A modern alternative to Boston housing. | scikit-learn |
+| **Heart Disease** | Predict presence of heart disease. | UCI |
+| **Pima Indians Diabetes** | Classification of diabetes based on diagnostic measures. | UCI |
+| **Bank Marketing** | Predict whether a client will subscribe to a term deposit. | UCI |
+
+### **3. Datasets for Data Visualization:**
+
+| Dataset | Description | Source |
+|---------|-------------|--------|
+| **Gapminder Data** | Global development indicators (life expectancy, income, etc.). | [Gapminder](https://www.gapminder.org/data/) |
+| **World Bank Open Data** | Country-level indicators (GDP, inflation, education, etc.). | [World Bank](https://data.worldbank.org/) |
+| **COVID-19 Dataset** | Time-series data on global COVID-19 stats. | [Our World in Data](https://ourworldindata.org/coronavirus-source-data) |
+| **Airbnb Listings** | Real-world city-level Airbnb listings. | [Inside Airbnb](http://insideairbnb.com/get-the-data.html) |
+| **Spotify Charts** | Song popularity and trends. | [Kaggle Spotify datasets](https://www.kaggle.com/datasets) |
+
+### **4. Tools & Libraries that Include Built-In Datasets:**
+
+| Tool | Datasets |
+|------|----------|
+| `sklearn.datasets` | Built-in datasets like Iris, Diabetes, California Housing. |
+| `seaborn.load_dataset()` | Datasets like Titanic, Tips, Flights, Penguins, etc., great for visualization. |
+| `plotly.express.data` | Built-in datasets like Gapminder, Iris, Tips for interactive plotting. |
+
+
+---
+---
 ## **Contributing:**
 Contributions are welcome! If you have suggestions for improvements or new features, please create an issue or submit a pull request.
+
+## 📫 **Contact:**
+- 📧 Email: russdataproject@gmail.com
+- 💼 LinkedIn: [Click Here](https://www.linkedin.com/in/rajesh-kumar-dhimal-478901279/)
