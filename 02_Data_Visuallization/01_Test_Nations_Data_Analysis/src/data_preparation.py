@@ -121,12 +121,17 @@ def process_data_pipeline():
 
 # --------------------
 # For data engineering, we need to call the wrapper function to get the final processed data
-#data = process_data_pipeline()
+data = process_data_pipeline()
 # --------------------------------------------------------------------------------------
+
 # 2. Data Engineering:
 
 def data_engineering(data):
+    # Data from data preparation step:
+    data = process_data_pipeline()
+
     # 1. Create month column from start_date column:
+
     # add month column to the dataframe:
     data["month"]= data["start_date"].dt.month
     # replace nan by most frequently occuring value of the column:
@@ -137,4 +142,147 @@ def data_engineering(data):
     5.0: 'May', 6.0: 'Jun', 7.0: 'Jul', 8.0: 'Aug',
     9.0: 'Sep', 10.0: 'Oct', 11.0: 'Nov', 12.0: 'Dec'}
     # Apply the mapping to the 'Month' column:
-    data['month'] = data['month'].map(month_mapping)
+    data['month'] = data['month'].map(month_mapping) 
+
+    # 2. **Create `"Is Neutral Ground"` column:**
+
+    # Create the mapping of each ground to its country
+    grounds = [
+    'Bengaluru', 'Eden Gardens', 'Delhi', 'Karachi', 'Faisalabad',
+    'Lahore', 'Mohali', 'Rawalpindi', 'Multan', 'Chennai', 'Sialkot',
+    'Ahmedabad', 'Jaipur', 'Nagpur', 'Jalandhar', 'Hyderabad (Sind)',
+    'Kanpur', 'Wankhede', 'Brabourne', 'Peshawar', 'Bahawalpur',
+    'Dhaka', 'Lucknow', 'Dubai (DICS)', 'Colombo (RPS)', 'Pallekele',
+    'Manchester', 'The Oval', 'Birmingham', 'Adelaide', 'Mirpur',
+    'Dambulla', 'Centurion', 'Gwalior', 'Guwahati', 'Abu Dhabi',
+    'Jamshedpur', 'Visakhapatnam', 'Kochi', 'Amstelveen', 'Sharjah',
+    'W.A.C.A', 'Hobart', 'Brisbane', 'Toronto', 'Colombo (SSC)',
+    'Singapore', 'Sydney', 'Gujranwala', 'Pune', 'Hyderabad (Deccan)',
+    'Indore', 'Melbourne', 'Quetta', 'Sahiwal', 'New York',
+    'Johannesburg', 'Durban', 'Hambantota', 'Leeds', 'Fatullah',
+    'Hangzhou', 'Perth', "Lord's", 'Colombo (PSS)', 'Taunton',
+    'Nairobi (Gym)', 'Melbourne (Docklands)', 'Nottingham', 'Cardiff',
+    'Canberra', 'Harare', 'Gros Islet', 'Chattogram', 'Khulna',
+    'Northampton', 'Moratuwa', 'Christchurch', 'Cape Town',
+    'Southampton', 'Bristol', 'Chester-le-Street', 'Cuttack',
+    'Bridgetown', 'Dublin (Malahide)', 'Dublin', 'Belfast', 'Kingston',
+    'Lauderhill', 'Mount Maunganui', 'Hamilton', 'Wellington',
+    'Napier', 'Dunedin', 'Auckland', 'Nelson', 'Queenstown', 'Derby',
+    'East London', 'Gqeberha', 'Sheikhupura', 'Paarl', 'Benoni',
+    'Bloemfontein', 'Tangier', 'Galle', 'Kandy', 'Colombo (CCC)',
+    'Hyderabad', 'Kimberley', 'Sargodha', 'Swansea', 'King City (NW)',
+    'Roseau', 'Basseterre', 'Providence', "St John's", 'Georgetown',
+    'Port of Spain', 'Kingstown', "St George's", 'Albion', 'Bulawayo',
+    'Dharamsala', 'Ranchi', 'Rajkot', 'Vadodara', 'Chandigarh',
+    'Kuala Lumpur', 'Margao', 'Srinagar', 'Thiruvananthapuram',
+    'New Delhi', 'Chelmsford', 'Raipur', 'North Sound', 'Mumbai',
+    'Faridabad', 'Taupo', 'Amritsar', 'Launceston', 'Hove', 'Mackay',
+    'Tarouba', 'Vijayawada', 'Jodhpur', 'Leicester', 'Tunbridge Wells',
+    'Sylhet', 'Dehradun', 'Tolerance Oval', 'Greater Noida',
+    'Rotterdam', 'Bready', 'Cairns', 'Darwin', 'Canterbury',
+    'Sheffield', 'Potchefstroom', 'Carrara', 'Geelong', 'Castries',
+    'Townsville', 'Bogra', 'Pietermaritzburg', 'Dallas',
+    'Nairobi (Aga)', 'Scarborough', 'Ballarat', 'Devonport', 'Albury',
+    'Aberdeen', 'Whangarei', 'Nairobi (Club)', 'Berri', 'Coolidge',
+    'Worcester', 'Patna', 'New Plymouth'
+]
+
+    # Country lookup based on cities/venues:
+    ground_to_country = {}
+
+    # Helper mapping by partial match:
+    country_keywords = {
+    'India': ['Bengaluru', 'Eden Gardens', 'Delhi', 'Mohali', 'Chennai', 'Ahmedabad', 'Jaipur',
+              'Nagpur', 'Jalandhar', 'Kanpur', 'Wankhede', 'Brabourne', 'Lucknow', 'Gwalior',
+              'Guwahati', 'Jamshedpur', 'Visakhapatnam', 'Kochi', 'Pune', 'Hyderabad (Deccan)',
+              'Indore', 'Rajkot', 'Vadodara', 'Chandigarh', 'Margao', 'Srinagar',
+              'Thiruvananthapuram', 'New Delhi', 'Raipur', 'Mumbai', 'Faridabad', 'Amritsar',
+              'Vijayawada', 'Jodhpur', 'Dehradun', 'Greater Noida', 'Patna'],
+    'Pakistan': ['Karachi', 'Faisalabad', 'Lahore', 'Rawalpindi', 'Multan', 'Sialkot',
+                 'Hyderabad (Sind)', 'Peshawar', 'Bahawalpur', 'Gujranwala', 'Quetta',
+                 'Sahiwal', 'Sheikhupura', 'Sargodha'],
+    'Bangladesh': ['Dhaka', 'Mirpur', 'Fatullah', 'Chattogram', 'Khulna', 'Sylhet', 'Bogra'],
+    'Sri Lanka': ['Colombo (RPS)', 'Pallekele', 'Dambulla', 'Hambantota', 'Colombo (SSC)',
+                  'Moratuwa', 'Galle', 'Kandy', 'Colombo (PSS)', 'Colombo (CCC)'],
+    'UAE': ['Dubai (DICS)', 'Sharjah', 'Abu Dhabi'],
+    'England': ['Manchester', 'The Oval', 'Birmingham', "Lord's", 'Taunton', 'Nottingham',
+                'Leeds', 'Southampton', 'Bristol', 'Chester-le-Street', 'Northampton',
+                'Derby', 'Chelmsford', 'Hove', 'Leicester', 'Tunbridge Wells', 'Sheffield',
+                'Scarborough', 'Worcester'],
+    'Australia': ['Adelaide', 'W.A.C.A', 'Hobart', 'Brisbane', 'Sydney', 'Melbourne',
+                  'Melbourne (Docklands)', 'Perth', 'Canberra', 'Launceston', 'Mackay',
+                  'Carrara', 'Geelong', 'Townsville', 'Ballarat', 'Devonport', 'Albury',
+                  'Berri'],
+    'New Zealand': ['Taupo', 'Mount Maunganui', 'Hamilton', 'Wellington', 'Napier',
+                    'Dunedin', 'Auckland', 'Nelson', 'Queenstown', 'Whangarei',
+                    'New Plymouth'],
+    'South Africa': ['Johannesburg', 'Durban', 'Centurion', 'East London', 'Gqeberha',
+                     'Paarl', 'Benoni', 'Bloemfontein', 'Kimberley', 'Potchefstroom',
+                     'Pietermaritzburg'],
+    'West Indies': ['Bridgetown', 'Kingston', 'Lauderhill', 'Roseau', 'Basseterre',
+                    'Providence', "St John's", 'Georgetown', 'Port of Spain',
+                    'Kingstown', "St George's", 'Albion', 'Castries', 'Coolidge',
+                    'North Sound', 'Tarouba'],
+    'Zimbabwe': ['Harare', 'Bulawayo'],
+    'Ireland': ['Dublin (Malahide)', 'Dublin', 'Belfast', 'Bready'],
+    'Scotland': ['Aberdeen'],
+    'Kenya': ['Nairobi (Gym)', 'Nairobi (Aga)', 'Nairobi (Club)'],
+    'Canada': ['Toronto', 'King City (NW)'],
+    'USA': ['New York', 'Dallas'],
+    'Netherlands': ['Amstelveen', 'Rotterdam'],
+    'Malaysia': ['Kuala Lumpur'],
+    'China': ['Hangzhou'],
+    'Singapore': ['Singapore'],
+    'Namibia': [],
+    'Afghanistan': [],
+    'Nepal': [],
+    'Hong Kong': [],
+    'Germany': [],
+    'Italy': [],
+    'Morocco': ['Tangier'],
+    'France': [],
+    'UAE': ['Tolerance Oval'],
+    'England': ['Canterbury'],  # UK variant
+}
+
+    # Assign countries to grounds
+    for ground in grounds:
+        assigned = False
+        for country, keywords in country_keywords.items():
+            if ground in keywords:
+                ground_to_country[ground] = country
+                assigned = True
+                break
+        if not assigned:
+            ground_to_country[ground] = 'Unknown'
+
+    ground_to_country_sorted = dict(sorted(ground_to_country.items()))
+
+    # 3. Map ground to country:
+    data['ground_country'] = data['ground'].map(ground_to_country_sorted)
+
+    # 4. Create is_neutral_ground column:
+    data['is_neutral_ground'] = ~(
+    (data['team_1'] == data['ground_country']) |
+    (data['team_2'] == data['ground_country']))
+
+    # .4 **Creating `won_by_runs` and `won_by_inns` columns from `margin`:**
+
+    # Filter out rows where the match is drawn or winner is missing
+    data = data[data["winner"].notna() & (data["winner"] != "drawn")]
+    # Extract the number of wickets from the margin column
+    data["won_by_wickets"] = data["margin"].str.extract(r"(\d+)\s+wickets", expand=False).astype(float)
+
+    # Extract the number of runs from the margin column
+    data["won_by_runs"] = data["margin"].str.extract(r"(\d+)\s+runs", expand=False).astype(float)
+
+    # Handle matches won by "innings and X runs"
+    innings_and_runs = data["margin"].str.extract(r"innings\s+and\s+(\d+)\s+runs", expand=False).astype(float)
+    data["won_by_runs"] = data["won_by_runs"].fillna(innings_and_runs)
+
+    return data
+
+# For Testing if the whole pipeline is doing well or not:
+#data_engineering(data)
+#print(data.shape)
+
