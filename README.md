@@ -176,10 +176,77 @@ Each Repository represents a **different stage** of solving real-world problems,
 - `Keras`
 - `TensorBoard`
 
-### 📌 **Key Activities:**
-- Building ANN, CNN, and RNN models
-- Model monitoring with TensorBoard
-- Deploying models
+## **Data Sources:**
+
+Here’s a list of **some of the largest and most popular open data sources** I may use in my projects:
+
+### **1. General-Purpose & Aggregators:**
+
+| Source | Description |
+|--------|-------------|
+| [Kaggle Datasets](https://www.kaggle.com/datasets) | Large variety of datasets (CSV, images, text, etc.) across domains. Easy to download and explore. |
+| [Google Dataset Search](https://datasetsearch.research.google.com/) | Search engine for finding datasets across the web. |
+| [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) | Classic ML datasets used in academic research. |
+| [AWS Open Data Registry](https://registry.opendata.aws/) | Huge cloud-hosted datasets for ML, earth science, genomics, etc. |
+| [Data.gov](https://www.data.gov/) | U.S. government’s open data portal (health, agriculture, education, etc.). |
+| [OpenML](https://www.openml.org/) | Collaborative platform for sharing datasets and ML experiments. |
+
+### 📷 **2. Image, Vision & Video:**
+
+| Source | Description |
+|--------|-------------|
+| [ImageNet](http://www.image-net.org/) | Large-scale image dataset organized according to WordNet hierarchy. |
+| [COCO (Common Objects in Context)](https://cocodataset.org/) | Object detection, segmentation, and captioning datasets. |
+| [Open Images Dataset by Google](https://storage.googleapis.com/openimages/web/index.html) | ~9 million images with annotations. |
+| [LFW (Labeled Faces in the Wild)](http://vis-www.cs.umass.edu/lfw/) | Face recognition dataset. |
+
+### 🧠 **3. Natural Language Processing (NLP):**
+
+| Source | Description |
+|--------|-------------|
+| [Hugging Face Datasets](https://huggingface.co/datasets) | Massive collection for NLP, speech, vision, and more. Directly usable with Hugging Face Transformers. |
+| [Common Crawl](https://commoncrawl.org/) | Petabytes of raw web crawl data. |
+| [Wikipedia Dumps](https://dumps.wikimedia.org/) | Full text of Wikipedia articles in various languages. |
+| [Project Gutenberg](https://www.gutenberg.org/) | 60,000+ free books for NLP tasks. |
+
+### 🧬 **4. Health & Genomics:**
+
+| Source | Description |
+|--------|-------------|
+| [MIMIC-III / MIMIC-IV](https://physionet.org/about/mimic/) | De-identified health data from ICU patients. |
+| [PhysioNet](https://physionet.org/) | Physiological signals, ECG, EEG datasets, etc. |
+| [NIH Chest X-ray Dataset](https://www.kaggle.com/nih-chest-xrays/data) | 112k chest X-rays with 14 disease labels. |
+
+
+### 📊 **5. Finance, Business, & Economics:**
+
+| Source | Description |
+|--------|-------------|
+| [Yahoo Finance via yfinance](https://pypi.org/project/yfinance/) | Historical stock data for companies and indexes. |
+| [Quandl](https://www.quandl.com/) | Financial, economic, and alternative datasets. |
+| [World Bank Open Data](https://data.worldbank.org/) | Global development data (GDP, inflation, etc.). |
+| [IMF Data](https://data.imf.org/) | Economic data from the International Monetary Fund. |
+
+---
+
+### 🛰️ **6. Geospatial & Environmental:**
+
+| Source | Description |
+|--------|-------------|
+| [Google Earth Engine](https://earthengine.google.com/datasets/) | Huge datasets for satellite imagery and remote sensing. |
+| [OpenStreetMap](https://www.openstreetmap.org/) | Free editable map data. |
+| [USGS Earth Explorer](https://earthexplorer.usgs.gov/) | Satellite imagery, including Landsat data. |
+| [NOAA Climate Data](https://www.ncei.noaa.gov/) | Climate, ocean, and weather data from the U.S. |
+
+---
+
+### 🗂️ **7. Specialty Platforms:**
+
+| Source | Description |
+|--------|-------------|
+| [Zenodo](https://zenodo.org/) | Research datasets with DOI; often used in academic ML research. |
+| [Papers with Code](https://paperswithcode.com/datasets) | ML papers + associated datasets and benchmarks. |
+| [GitHub](https://github.com/search?q=dataset) | Many public repositories share datasets or links to them. |
 
 # 📢 **Contributions:**
 

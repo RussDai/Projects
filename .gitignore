@@ -2,6 +2,10 @@
 desktop.ini
 .vscode
 __pycache__
+<<<<<<< HEAD
+.git 
+=======
+>>>>>>> 389f30ffef1a17d195c89a879bd2adc4c3404cdc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
